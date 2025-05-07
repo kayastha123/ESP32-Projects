@@ -1,11 +1,11 @@
 #include <WiFi.h>
 #include <FirebaseESP32.h>
 
-#define WIFI_SSID "ELETH"
-#define WIFI_PASS "eleth333"
+#define WIFI_SSID ""    //WIFI SSID name
+#define WIFI_PASS ""    // WIFI password
 
-#define FIREBASE_HOST "https://esp-location-ac913-default-rtdb.firebaseio.com/" 
-#define FIREBASE_AUTH "AIzaSyAfqbfOrEsei1lT9Wu022ASsqDHpRI4TAg"
+#define FIREBASE_HOST ""    // FIrebase Hosting adress
+#define FIREBASE_AUTH ""    // Firebase authentication
 
 FirebaseData firebaseData;
 FirebaseConfig config;
@@ -32,7 +32,7 @@ void setup() {
 void loop() {
   int rssi = WiFi.RSSI();
 
-  if (Firebase.setInt(firebaseData, "/value", rssi)) {
+  if (Firebase.setInt(firebaseData, "/value", rssi)) // Firebase path {
     Serial.println("RSSI Updated: " + String(rssi));
   } else {
     Serial.println("Firebase Error: " + firebaseData.errorReason());
