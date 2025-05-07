@@ -32,7 +32,8 @@ void setup() {
 void loop() {
   int rssi = WiFi.RSSI();
 
-  if (Firebase.setInt(firebaseData, "/value", rssi)) // Firebase path {
+  if (Firebase.setInt(firebaseData, "/value", rssi)) // Firebase path
+  {
     Serial.println("RSSI Updated: " + String(rssi));
   } else {
     Serial.println("Firebase Error: " + firebaseData.errorReason());
